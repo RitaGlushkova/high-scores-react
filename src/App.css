@@ -1,0 +1,23 @@
+.App {
+  text-align: center;
+}
+
+.card {
+  margin: auto;
+}
+.card-body {
+  border: solid 2px greenyellow;
+  margin: 10px;
+}
+
+.name-text {
+  font-weight: bold;
+}
+
+.score-text {
+  color: red;
+}
+
+h5 {
+  color: blue;
+}
