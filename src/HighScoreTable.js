@@ -6,13 +6,18 @@ const HighScoreTable = (props) => {
   props = Scores.sort((a, b) =>
     a.name > b.name ? 1 : b.name > a.name ? -1 : 0
   );
-  const [sorted, setSorted] = useState(props);
-  // const [sortDirection, setSortDirection] = useState(1);
 
-  const descending = () => {
+  // const [sortDirection, setSortDirection] = useState(1);
+  const [sorted, setSorted] = useState(props);
+
+  const direction = () => {
+    // setSortDirection((el) => el * -1);
+
     const newSorted = [...sorted].map((el) => ({
       ...el,
-      scores: el.scores.sort((a, b) => (a.s > b.s ? 1 : b.s > a.s ? -1 : 0)),
+      scores: el.scores.sort((a, b) =>
+        a.s > b.s ? 1 : b.s > a.s ? -1 : 0
+      ),
     }));
     setSorted(newSorted);
   };
@@ -30,9 +35,9 @@ const HighScoreTable = (props) => {
       <div className="card-header">
         High Scores per Country
         <button onClick={ascending}>Highest score</button>
-        <button onClick={descending}>Lowest score</button>
+        <button onClick={direction}>Sort Score</button>
       </div>
-      {props.map((prop, index) => {
+      {sorted.map((prop, index) => {
         return (
           <HighScoreCard key={index} name={prop.name} scores={prop.scores} />
         );
