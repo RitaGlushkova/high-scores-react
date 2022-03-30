@@ -7,7 +7,6 @@ const WorldWide = (props) => {
     .map((country) => country.scores)
     .flat()
     .sort((a, b) => (a.s > b.s ? -1 : b.s > a.s ? 1 : 0));
-  console.log(props);
   return (
     <div className="card bg-light mb-3" style={{ maxWidth: "18rem" }}>
       <div className="card-header">High Scores World Wide</div>
